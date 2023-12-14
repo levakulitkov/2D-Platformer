@@ -2,20 +2,22 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
-public class EnemyMovement : MonoBehaviour
+[RequireComponent(typeof(EnemyMover))]
+public class Enemy : MonoBehaviour
 {
     [SerializeField] private Transform _path;
-    [SerializeField] private float _speed;
-
+    
     private SpriteRenderer _renderer;
     private Animator _animator;
+    private EnemyMover _mover;
     private Transform[] _waypoints;
     private int _currentWaypointIndex;
-
+    
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _mover = GetComponent<EnemyMover>();
         _waypoints = new Transform[_path.childCount];
 
         for (int i = 0; i < _path.childCount; i++)
@@ -26,32 +28,23 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        MoveToWaypoint();
-    }
-
-    private void MoveToWaypoint()
-    {
         Transform target = _waypoints[_currentWaypointIndex];
+        
         SetFlipX(target.position.x);
         
-        _animator.SetBool(AnimatorPlayer.Params.IsRun, true);
+        _animator.SetBool(AnimatorEnemy.Params.IsRun, transform.position != target.position);
         
-        transform.position = Vector3.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
+        _mover.MoveTo(target);
         
         if (transform.position == target.position)
-        {
-            _currentWaypointIndex++;
-
-            if (_currentWaypointIndex >= _waypoints.Length)
-                _currentWaypointIndex = 0;
-        }
+            _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Length;
     }
     
-    private void SetFlipX(float targetX)
+    private void SetFlipX(float targetPositionX)
     {
-        if (targetX > transform.position.x && !_renderer.flipX)
+        if (targetPositionX > transform.position.x && !_renderer.flipX)
             _renderer.flipX = true;
-        else if (targetX < transform.position.x && _renderer.flipX)
+        else if (targetPositionX < transform.position.x && _renderer.flipX)
             _renderer.flipX = false;
     } 
 }
