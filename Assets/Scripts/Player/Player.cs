@@ -3,10 +3,26 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _lowerLimitPositionY;
-
-    private int _money;
+    [SerializeField] private float _lowerLimitPositionY = -15;
     
+    private int _money;
+    private Health _health;
+
+    private void Awake()
+    {
+        _health = GetComponent<Health>();
+    }
+
+    private void OnEnable()
+    {
+        _health.Died += Die;
+    }
+
+    private void OnDisable()
+    {
+        _health.Died -= Die;
+    }
+
     private void Update()
     {
         if (transform.position.y < _lowerLimitPositionY)

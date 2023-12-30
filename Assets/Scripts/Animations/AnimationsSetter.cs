@@ -7,20 +7,22 @@ public class AnimationsSetter : MonoBehaviour
     
     protected Animator Animator;
 
+    public bool IsFlipped => _renderer.flipX;
+
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
         Animator = GetComponent<Animator>();
     }
     
-    protected void SetFlipX(float offset, bool defaultDirectionIsRight)
+    protected void SetFlipX(float offset, bool defaultSpriteDirectionIsRight)
     {
         if (offset == 0)
             return;
 
-        bool isFlipped = defaultDirectionIsRight && offset < 0 || !defaultDirectionIsRight && offset > 0;
+        bool newFlippedState = defaultSpriteDirectionIsRight ^ offset > 0;
 
-        if (_renderer.flipX != isFlipped)
-            _renderer.flipX = isFlipped;
+        if (_renderer.flipX != newFlippedState)
+            _renderer.flipX = newFlippedState;
     }
 }

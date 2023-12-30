@@ -1,6 +1,7 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerAnimationsSetter), typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerMover), typeof(PlayerAnimationsSetter),
+	typeof(PlayerAttackHandler))]
 public class PlayerController : MonoBehaviour
 {
     private const string Horizontal = nameof(Horizontal);
@@ -9,11 +10,13 @@ public class PlayerController : MonoBehaviour
     
     private PlayerAnimationsSetter _animator;
     private PlayerMover _mover;
+    private PlayerAttackHandler _attackHandler;
 
     private void Awake()
     {
         _animator = GetComponent<PlayerAnimationsSetter>();
         _mover = GetComponent<PlayerMover>();
+        _attackHandler = GetComponent<PlayerAttackHandler>();
     }
 
     private void Update()
@@ -23,17 +26,23 @@ public class PlayerController : MonoBehaviour
 
         bool isGrounded = CheckForGround();
         var isJumped = false;
+        var isAttacked = false;
         
         if (isGrounded)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 _mover.Jump();
                 isJumped = true;
             }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _attackHandler.Attack(_animator.IsFlipped);
+                isAttacked = true;
+            }
         }
         
-        _animator.Set(inputX, isGrounded, isJumped);
+        _animator.Set(inputX, isGrounded, isJumped, isAttacked);
     }
     
     private bool CheckForGround()
