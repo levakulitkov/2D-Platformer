@@ -3,6 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(EnemyMover), 
     typeof(EnemyTargetSetter), typeof(EnemyAnimationsSetter))]
+[RequireComponent(typeof(EnemyAttackTrigger), typeof(Health))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _aggressiveStateDuration = 2;

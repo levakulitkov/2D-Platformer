@@ -8,14 +8,14 @@ public class PlayerController : MonoBehaviour
     private const float RayDistance = 0.5f;
     private static readonly string[] WhatAreGroundLayers = new string[] { "Ground" };
     
-    private PlayerAnimationsSetter _animator;
     private PlayerMover _mover;
+    private PlayerAnimationsSetter _animator;
     private PlayerAttackHandler _attackHandler;
 
     private void Awake()
     {
-        _animator = GetComponent<PlayerAnimationsSetter>();
         _mover = GetComponent<PlayerMover>();
+        _animator = GetComponent<PlayerAnimationsSetter>();
         _attackHandler = GetComponent<PlayerAttackHandler>();
     }
 

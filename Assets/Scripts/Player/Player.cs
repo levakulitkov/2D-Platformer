@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _lowerLimitPositionY = -15;

@@ -18,8 +18,6 @@ public class Health : MonoBehaviour
     {
         _currentValue = Mathf.Clamp(_currentValue - damage, 0, _maxValue);
         
-        Debug.Log($"У {gameObject.name} осталось {_currentValue}hp");
-        
 		if (_currentValue == 0)
 			Died?.Invoke();
     }
@@ -27,7 +25,5 @@ public class Health : MonoBehaviour
     public void Heal(float value)
     {
         _currentValue = Mathf.Clamp(_currentValue + value, 0, _maxValue);
-        
-        Debug.Log($"У {gameObject.name} теперь {_currentValue}hp");
     }
 }
