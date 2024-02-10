@@ -9,7 +9,7 @@ public class HealthText : HealthView
 
     private void Start()
     {
-        _healthText.text = $"{Health.MaxValue}{HealthTextSeparator}{Health.MaxValue}";
+        _healthText.text = $"{Health.Value}{HealthTextSeparator}{Health.MaxValue}";
     }
 
     public override void HealthChangeHandler(float value)

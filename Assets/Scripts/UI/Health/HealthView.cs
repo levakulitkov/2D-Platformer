@@ -10,7 +10,15 @@ public abstract class HealthView : MonoBehaviour
         Health = GetComponent<Health>();
     }
 
-    public virtual void HealthChangeHandler(float value)
+    private void OnEnable()
     {
+        Health.Changed += HealthChangeHandler;
     }
+
+    private void OnDisable()
+    {
+        Health.Changed -= HealthChangeHandler;
+    }
+
+    public abstract void HealthChangeHandler(float value);
 }

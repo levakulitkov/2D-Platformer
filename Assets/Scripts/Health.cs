@@ -1,37 +1,46 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public UnityEvent<float> Changed;
+    public event Action<float> Changed;
     public event Action Died;
-    
+
     [SerializeField] private int _maxValue = 100;
 
-    private float _currentValue;
+    private float _value;
+
+    public float Value
+    {
+        get
+        {
+            return _value;
+        }
+        private set
+        {
+            _value = Mathf.Clamp(value, 0, _maxValue);
+
+            Changed?.Invoke(_value);
+
+            if (_value == 0)
+                Died?.Invoke();
+        }
+    }
 
     public int MaxValue => _maxValue;
 
     private void Awake()
     {
-        _currentValue = _maxValue;
+        Value = _maxValue;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float value)
     {
-        _currentValue = Mathf.Clamp(_currentValue - damage, 0, _maxValue);
-
-        Changed?.Invoke(_currentValue);
-
-        if (_currentValue == 0)
-			Died?.Invoke();
+        Value -= value;
     }
 
     public void Heal(float value)
     {
-        _currentValue = Mathf.Clamp(_currentValue + value, 0, _maxValue);
-
-        Changed?.Invoke(_currentValue);
+        Value += value;
     }
 }
