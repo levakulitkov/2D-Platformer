@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerAttackHandler : MonoBehaviour
 {
     private static readonly string[] WhatAreDamageableLayers = new string[]{"Damageable"};
@@ -10,13 +9,7 @@ public class PlayerAttackHandler : MonoBehaviour
     [SerializeField] private float _cooldown = 0.2f;
     [SerializeField] private float _rayDistance = 1f;
 
-    private SpriteRenderer _renderer;
     private bool _isAttackState;
-
-    private void Awake()
-    {
-        _renderer = GetComponent<SpriteRenderer>();
-    }
 
     public void Attack(bool isPlayerSpriteFlipped)
     {
