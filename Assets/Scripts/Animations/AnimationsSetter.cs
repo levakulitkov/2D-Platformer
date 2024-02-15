@@ -3,15 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(Animator), typeof(SpriteRenderer))]
 public class AnimationsSetter : MonoBehaviour
 {
-    private SpriteRenderer _renderer;
-    
+    protected SpriteRenderer Renderer;    
     protected Animator Animator;
 
-    public bool IsFlipped => _renderer.flipX;
+    public bool IsFlipped => Renderer.flipX;
 
     private void Awake()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        Renderer = GetComponent<SpriteRenderer>();
         Animator = GetComponent<Animator>();
     }
     
@@ -22,7 +21,7 @@ public class AnimationsSetter : MonoBehaviour
 
         bool newFlippedState = defaultSpriteDirectionIsRight ^ offset > 0;
 
-        if (_renderer.flipX != newFlippedState)
-            _renderer.flipX = newFlippedState;
+        if (Renderer.flipX != newFlippedState)
+            Renderer.flipX = newFlippedState;
     }
 }

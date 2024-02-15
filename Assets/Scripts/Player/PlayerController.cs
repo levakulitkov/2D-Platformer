@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour
     private PlayerMover _mover;
     private PlayerAnimationsSetter _animator;
     private PlayerAttackHandler _attackHandler;
+    private VampyrismAura _vampyrismAura;
 
     private void Awake()
     {
         _mover = GetComponent<PlayerMover>();
         _animator = GetComponent<PlayerAnimationsSetter>();
         _attackHandler = GetComponent<PlayerAttackHandler>();
+        _vampyrismAura = GetComponentInChildren<VampyrismAura>();
     }
 
     private void Update()
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
         bool isGrounded = CheckForGround();
         var isJumped = false;
         var isAttacked = false;
-        
+
         if (isGrounded)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
@@ -41,8 +43,13 @@ public class PlayerController : MonoBehaviour
                 isAttacked = true;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            _vampyrismAura.Activate();
+        }
         
-        _animator.Set(inputX, isGrounded, isJumped, isAttacked);
+        _animator.Set(inputX, isGrounded, isJumped, isAttacked, _vampyrismAura.IsActive);
     }
     
     private bool CheckForGround()

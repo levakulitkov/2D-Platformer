@@ -266,88 +266,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c909f7c1e4947e408d8def82830a23c, type: 3}
---- !u!1 &466197632
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 466197633}
-  - component: {fileID: 466197635}
-  - component: {fileID: 466197634}
-  m_Layer: 0
-  m_Name: VampyrismAura
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &466197633
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466197632}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 628869925}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &466197634
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466197632}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
---- !u!114 &466197635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466197632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d5eb262efa5104dab8a1f7836c5529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cooldown: 1
-  _damage: 1
 --- !u!1 &500209719
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512511437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.25, y: -1.5, z: 0}
+  m_LocalPosition: {x: -0.5, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -771,11 +689,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49efab1a5e2f693498975d9c0ea41ab2, type: 3}
---- !u!4 &628869925 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2872587572907354623, guid: c862adf108bfa274aa894b56c448c876, type: 3}
-  m_PrefabInstance: {fileID: 6940718320514444245}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &828295396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -784,6 +697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -956522659454414689, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
+      propertyPath: _vampyrismAura
+      value: 
+      objectReference: {fileID: 2000958595}
     - target: {fileID: 552468739824725924, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -796,9 +713,9 @@ PrefabInstance:
       propertyPath: _path
       value: 
       objectReference: {fileID: 1937018819}
-    - target: {fileID: 2657353263910539981, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
-      propertyPath: m_Name
-      value: VampyrismEffect
+    - target: {fileID: 6484418845740434815, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6535657907180374037, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -814,7 +731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6588955080560648565, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 6588955080560648565, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1830,7 +1747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498595088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -1.5, z: 0}
+  m_LocalPosition: {x: 2.93, y: -1.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1903,7 +1820,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49efab1a5e2f693498975d9c0ea41ab2, type: 3}
---- !u!1001 &1554062898
+--- !u!1001 &1863625216
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1911,6 +1828,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -956522659454414689, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
+      propertyPath: _vampyrismAura
+      value: 
+      objectReference: {fileID: 2000958595}
     - target: {fileID: 552468739824725924, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1923,30 +1844,10 @@ PrefabInstance:
       propertyPath: _path
       value: 
       objectReference: {fileID: 1373352237}
-    - target: {fileID: 2657353263910539981, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
-      propertyPath: m_Name
-      value: VampyrismEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 3957704692902568409, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
-      propertyPath: TriggerModule.enabled
+    - target: {fileID: 6484418845740434815, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
+      propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3957704692902568409, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
-      propertyPath: CollisionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3957704692902568409, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3957704692902568409, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
-      propertyPath: TriggerModule.primitives.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3957704692902568409, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
-      propertyPath: TriggerModule.primitives.Array.data[0]
-      value: 
-      objectReference: {fileID: 2872587572907354623, guid: c862adf108bfa274aa894b56c448c876, type: 3}
     - target: {fileID: 6535657907180374037, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1961,11 +1862,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6588955080560648565, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.93
+      value: 3.41
       objectReference: {fileID: 0}
     - target: {fileID: 6588955080560648565, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.43
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6588955080560648565, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1999,6 +1900,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6970918820942831915, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
+      propertyPath: _vampyrismAura
+      value: 
+      objectReference: {fileID: 2000958595}
     - target: {fileID: 9017376759139976585, guid: 5dafee0c8a14dfa4b8ecafa9cb36fc1c, type: 3}
       propertyPath: m_Name
       value: Enemy2
@@ -2135,6 +2040,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000958595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3527181880909041426, guid: c862adf108bfa274aa894b56c448c876, type: 3}
+  m_PrefabInstance: {fileID: 6940718320514444245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d5eb262efa5104dab8a1f7836c5529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2048584503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7311791442383843028, guid: 49efab1a5e2f693498975d9c0ea41ab2, type: 3}
@@ -2275,6 +2191,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 268886583331967501, guid: c862adf108bfa274aa894b56c448c876, type: 3}
+      propertyPath: m_Size.x
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 833632928703631594, guid: c862adf108bfa274aa894b56c448c876, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2283,13 +2203,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1645492645327451406, guid: c862adf108bfa274aa894b56c448c876, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2872587572907354623, guid: c862adf108bfa274aa894b56c448c876, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2872587572907354623, guid: c862adf108bfa274aa894b56c448c876, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.25
+      value: -7.53
       objectReference: {fileID: 0}
     - target: {fileID: 2872587572907354623, guid: c862adf108bfa274aa894b56c448c876, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2327,6 +2251,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5978459062630783084, guid: c862adf108bfa274aa894b56c448c876, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978459062630783084, guid: c862adf108bfa274aa894b56c448c876, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6235297327662626651, guid: c862adf108bfa274aa894b56c448c876, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2335,29 +2267,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7003795374344736920, guid: c862adf108bfa274aa894b56c448c876, type: 3}
-      propertyPath: Changed.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7409621920494104305, guid: c862adf108bfa274aa894b56c448c876, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8127799998379850397, guid: c862adf108bfa274aa894b56c448c876, type: 3}
-      propertyPath: m_Name
-      value: Vampyrism Force Field
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127799998379850397, guid: c862adf108bfa274aa894b56c448c876, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2872587572907354623, guid: c862adf108bfa274aa894b56c448c876, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 466197633}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c862adf108bfa274aa894b56c448c876, type: 3}
 --- !u!1001 &7430969089364815632
