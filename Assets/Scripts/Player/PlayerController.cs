@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            _vampyrismAura.Activate();
+            _vampyrismAura.TryActivate();
         }
         
         _animator.Set(inputX, isGrounded, isJumped, isAttacked, _vampyrismAura.IsActive);

@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7625435065908735946, guid: 340373e5f7e75b64ab55cf2538e41ca5, type: 3}
       propertyPath: m_Name
-      value: SmoothHealthBarSlider
+      value: AdvancedHealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 8246961202610638003, guid: 340373e5f7e75b64ab55cf2538e41ca5, type: 3}
       propertyPath: m_AnchorMax.x
